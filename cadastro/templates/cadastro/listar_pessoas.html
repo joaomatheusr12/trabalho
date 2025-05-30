@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Pessoas</title>
+</head>
+<body>
+    <h1>Lista de Pessoas</h1>
+    <a href="{% url 'criar_pessoa' %}">Novo Cadastro</a>
+    <br><br>
+
+    <a href="?ordem=nome">Ordenar por Nome</a> |
+  
+
+    <ul>
+        {% for pessoa in pessoas %}
+            <li>
+                <a href="{% url 'detalhes_pessoa' pessoa.id %}">
+                    {{ pessoa.nome }} - {{ pessoa.cpf }}
+                </a>
+            </li>
+        {% empty %}
+            <li>Nenhuma pessoa cadastrada.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
